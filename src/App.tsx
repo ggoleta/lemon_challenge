@@ -1,8 +1,12 @@
 import React from 'react';
+import { GlobalStyle } from './styles/global';
 
 function App() {
   return (
-    <h1>Processo Seletivo - Lemon Energy</h1>
+    <>
+      <GlobalStyle />
+      <h1>Processo Seletivo - Lemon Energy</h1>
+    </>
   );
 }
 
