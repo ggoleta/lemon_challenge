@@ -3,9 +3,9 @@ import Button from './'
 
 describe('Button Component', () => {
 
-  it('render Button correctly', () => {
+  it('should render Button correctly', () => {
     render (
-      <Button>
+      <Button color='primary'>
         Text
       </Button>
     )
