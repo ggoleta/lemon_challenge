@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
 interface ContainerProps {
-  color: 'primary' | 'secondary'
-  icon?: string;
+  isLoading: boolean;
+  color: 'primary' | 'secondary';
+  icon?: string | undefined;
 }
 
 const colorsStatusBtnNormal = {
@@ -15,13 +16,19 @@ const colorsStatusBtnHover = {
   secondary: '#FFDF77'
 }
 
+const colorsStatusBtnActive = {
+  primary: '#013C00',
+  secondary: '#DCAC0D'
+}
+
 const colorsStatusBtnDisabled = {
   primary: '#B7D0B6',
   secondary: '#FFE58D'
 }
 
 export const Container = styled.button<ContainerProps>`
-  width: 19rem;
+  min-width: 19rem;
+  width: 100%;
   height: 3.5rem;
   border: 0;
   font-size: 1rem;
@@ -32,21 +39,19 @@ export const Container = styled.button<ContainerProps>`
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
-
-  > div {
-    border: 1px dashed blue;
-  }
+  justify-content: center;
+  ${(props) => (props.icon === undefined) ? { justifyContent: "center" } : { justifyContent: "space-between" }}
 
   &:hover {
-    background-color: ${(props) => colorsStatusBtnHover[props.color]};;
+    background-color: ${(props) => colorsStatusBtnHover[props.color]};
+  }
+  
+  &:active {
+    background-color: ${(props) => colorsStatusBtnActive[props.color]};
   }
 
   &:disabled {
     background-color: ${(props) => colorsStatusBtnDisabled[props.color]};
   }
 
-  img {
-    border: 1px dashed red;
-  }
 `

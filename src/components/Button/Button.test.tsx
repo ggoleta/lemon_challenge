@@ -5,7 +5,7 @@ describe('Button Component', () => {
 
   it('should render Button correctly', () => {
     render (
-      <Button color='primary'>
+      <Button color='primary' isLoading>
         Text
       </Button>
     )
